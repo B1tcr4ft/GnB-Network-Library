@@ -1,0 +1,11 @@
+{
+  "name": "gnb-network",
+  "version": "0.0.1",
+  "description": "Network library for bitcraft-g&b grafana plug-in",
+  "main": "src/network.js",
+  "author": "BitCraft",
+  "license": "MIT",
+  "dependencies": {
+    "jsbayes": "^0.1.0"
+  }
+}
