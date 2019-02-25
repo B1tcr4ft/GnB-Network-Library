@@ -1,4 +1,4 @@
-import { Network } from '../src/network';
+import { Network } from '../network';
 import * as jsbayes from 'jsbayes'
 
 /**
