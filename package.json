@@ -7,6 +7,17 @@
     "type": "git",
     "url": "git+https://gitlab.com/bitcrafters/gnb-network.git"
   },
+  "keywords": [
+    "bayesian",
+    "network",
+    "javascript",
+    "probability",
+    "probabilistic",
+    "inference",
+    "sampling",
+    "visualization",
+    "grafana"
+  ],
   "author": "Bitcraft <bitcraft.it@gmail.com> (https://bitcraftswe.it)",
   "license": "MIT",
   "bugs": {
