@@ -1,5 +1,5 @@
 import { Node } from "./node";
-import { getNetworkFromJSON, getJSONFromNetwork } from "./util/json-util";
+import { getNetworkFromJSON, getJSONFromNetwork } from "../util/json-util";
 import * as jsbayes from 'jsbayes';
 
 export class Network {

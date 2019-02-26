@@ -2,7 +2,7 @@
   "name": "gnb-network",
   "version": "0.0.1",
   "description": "Network library for bitcraft-g&b grafana plug-in",
-  "main": "src/network.js",
+  "main": "src/util/json-util.js",
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.com/bitcrafters/gnb-network.git"
