@@ -18,8 +18,6 @@ export class Node {
         this.states = states;
         this.cpt = cpt;
         this.sensor = sensor;
-
-        this.currentState = null;
     }
 
     /**
@@ -35,12 +33,10 @@ export class Node {
      * @param value the sensor's value
      * @returns {string} the current state's name
      */
-    updateState(value) {
+    getState(value) {
         this.states.forEach(state => {
             if(state.isFired(value)) {
-                this.currentState = state.name;
-
-                return this.currentState;
+                return state.name
             }
         });
     }
