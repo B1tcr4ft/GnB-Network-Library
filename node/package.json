@@ -1,0 +1,33 @@
+{
+  "name": "gnb-network",
+  "version": "0.0.1",
+  "description": "Network library for bitcraft-g&b grafana plug-in",
+  "main": "src/util/json-util.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/bitcrafters/gnb-network.git"
+  },
+  "keywords": [
+    "bayesian",
+    "network",
+    "javascript",
+    "probability",
+    "probabilistic",
+    "inference",
+    "sampling",
+    "visualization",
+    "grafana"
+  ],
+  "author": "Bitcraft <bitcraft.it@gmail.com> (https://bitcraftswe.it)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/bitcrafters/gnb-network/issues"
+  },
+  "dependencies": {
+    "jsbayes": "^0.1.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-simple-commonjs": "^0.3.0",
+    "babel-cli": "^6.26.0"
+  }
+}
