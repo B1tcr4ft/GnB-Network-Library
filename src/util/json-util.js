@@ -1,4 +1,7 @@
-import { Network } from '../network/network';
+const { Network } = require("../network/network");
+const { Node } = require('../network/node');
+
+let exports = module.exports = {};
 
 /**
  * TODO
@@ -6,9 +9,9 @@ import { Network } from '../network/network';
  * @param network {Network} the network instance
  * @returns {JSON} the JSON definition
  */
-export function getJSONFromNetwork(network) {
+exports.getJSONFromNetwork = function(network) {
     return null;
-}
+};
 
 /**
  * Get a network instance from a JSON containing
@@ -16,7 +19,7 @@ export function getJSONFromNetwork(network) {
  * @param json {JSON} the json file
  * @returns {Network} the network instance
  */
-export function getNetworkFromJSON(json) {
+exports.getNetworkFromJSON = function(json) {
     let id = json.id;
     let name = json.name;
     let DBWriteName = json.databaseWriteName;
@@ -24,4 +27,4 @@ export function getNetworkFromJSON(json) {
     let nodes = json.nodes.map(node => Node.fromJSON(node));
 
     return new Network(id, name, DBWriteName, refreshTime, nodes);
-}
+};

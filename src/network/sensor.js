@@ -1,4 +1,6 @@
-export class Sensor {
+let exports = module.exports = {};
+
+exports.Sensor = class {
     /**
      * Build a sensor instance
      * @param DBSensorName {string} the database name
@@ -22,6 +24,6 @@ export class Sensor {
         let DBSensorTable = json.databaseSensorTable;
         let DBSensorColumn = json.databaseSensorColumn;
 
-        return new Sensor(DBSensorName, DBSensorTable, DBSensorColumn);
+        return new exports.Sensor(DBSensorName, DBSensorTable, DBSensorColumn);
     }
-}
+};
