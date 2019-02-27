@@ -1,14 +1,20 @@
-"use strict";
+'use strict';
 
 class Sensor {
     /**
      * Build a sensor instance
      * @param DBSensorName {string} the database name
-     * @param DBSensorTable
-     * @param DBSensorColumn
+     * @param DBSensorUrl {string} the database url
+     * @param DBSensorUser {string} the database user
+     * @param DBSensorPassword {string} the database password
+     * @param DBSensorTable {string} the database table
+     * @param DBSensorColumn {string} the database column
      */
-    constructor(DBSensorName, DBSensorTable, DBSensorColumn) {
+    constructor(DBSensorName, DBSensorUrl, DBSensorUser, DBSensorPassword, DBSensorTable, DBSensorColumn) {
         this.DBSensorName = DBSensorName;
+        this.DBSensorUrl = DBSensorUrl;
+        this.DBSensorUser = DBSensorUser;
+        this.DBSensorPassword = DBSensorPassword;
         this.DBSensorTable = DBSensorTable;
         this.DBSensorColumn = DBSensorColumn;
     }
@@ -20,11 +26,18 @@ class Sensor {
      * @return {Sensor} the sensor instance
      */
     static fromJSON(json) {
-        let DBSensorName = json.databaseSensorName;
-        let DBSensorTable = json.databaseSensorTable;
-        let DBSensorColumn = json.databaseSensorColumn;
+        if (json.hasOwnProperty('databaseSensorName')) {
+            let DBSensorName = json.databaseSensorName;
+            let DBSensorUrl = json.databaseSensorUrl;
+            let DBSensorUser = json.databaseSensorUser;
+            let DBSensorPassword = json.databaseSensorPassword;
+            let DBSensorTable = json.databaseSensorTable;
+            let DBSensorColumn = json.databaseSensorColumn;
 
-        return new Sensor(DBSensorName, DBSensorTable, DBSensorColumn);
+            return new Sensor(DBSensorName, DBSensorUrl, DBSensorUser, DBSensorPassword, DBSensorTable, DBSensorColumn);
+        }
+
+        return null;
     }
 }
 exports.Sensor = Sensor;

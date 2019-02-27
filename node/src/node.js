@@ -26,6 +26,10 @@ class Node {
         this.sensor = sensor;
     }
 
+    hasSensor() {
+        return this.sensor !== null;
+    }
+
     /**
      * Get a node instance from a JSON containing
      * its definition
