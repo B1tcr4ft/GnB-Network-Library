@@ -1,6 +1,4 @@
-let exports = module.exports = {};
-
-exports.State = class {
+export class State {
     constructor(name, trigger) {
         this.name = name;
         this.trigger = trigger;
@@ -26,6 +24,6 @@ exports.State = class {
         let name = json.name;
         let trigger = json.trigger;
 
-        return new exports.State(name, trigger);
+        return new State(name, trigger);
     }
-};
+}
