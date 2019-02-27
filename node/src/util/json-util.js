@@ -4,6 +4,10 @@ var _networkNetwork = require('../network/network');
 
 var Network = _networkNetwork.Network;
 
+var _networkNode = require('../network/node');
+
+var Node = _networkNode.Node;
+
 
 /**
  * TODO

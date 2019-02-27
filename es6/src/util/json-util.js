@@ -1,4 +1,5 @@
 import { Network } from '../network/network';
+import { Node } from '../network/node';
 
 /**
  * TODO
