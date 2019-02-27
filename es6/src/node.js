@@ -18,10 +18,31 @@ export class Node {
         this.states = states;
         this.cpt = cpt;
         this.sensor = sensor;
+
+        this.currentState = null;
     }
 
+    /**
+     * Check whether the node has a sensor attached or not
+     * @return {boolean} true, if the node has a sensor, false otherwise
+     */
     hasSensor() {
         return this.sensor !== null;
+    }
+
+    /**
+     * Updates the node's current state
+     * @param value the sensor's value
+     * @returns {string} the current state's name
+     */
+    updateState(value) {
+        this.states.forEach(state => {
+            if(state.isFired(value)) {
+                this.currentState = state.name;
+
+                return this.currentState;
+            }
+        });
     }
 
     /**
