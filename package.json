@@ -24,10 +24,10 @@
     "url": "https://gitlab.com/bitcrafters/gnb-network/issues"
   },
   "dependencies": {
-    "babel-plugin-transform-es2015-modules-simple-commonjs": "^0.3.0",
     "jsbayes": "^0.1.0"
   },
   "devDependencies": {
+    "babel-plugin-transform-es2015-modules-simple-commonjs": "^0.3.0",
     "babel-cli": "^6.26.0"
   }
 }
