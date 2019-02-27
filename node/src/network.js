@@ -4,11 +4,6 @@ var _node = require("./node");
 
 var Node = _node.Node;
 
-var _utilJsonUtil = require("../util/json-util");
-
-var getNetworkFromJSON = _utilJsonUtil.getNetworkFromJSON;
-var getJSONFromNetwork = _utilJsonUtil.getJSONFromNetwork;
-
 var _jsbayes = require('jsbayes');
 
 var jsbayes = _jsbayes;
@@ -18,13 +13,19 @@ class Network {
      * @param id {string} the network id
      * @param name {string} the network name
      * @param DBWriteName {string} the database name (as it is called on Grafana's database list) where the nodes' probabilities will be registered
+     * @param DBWriteUrl {string} url of the database where the nodes' probabilities will be registered
+     * @param DBWriteUser {string} user of the database where the nodes' probabilities will be registered
+     * @param DBWritePassword {string} password of the database where the nodes' probabilities will be registered
      * @param refreshTime {number} the interval time (in milliseconds) between the node updates
      * @param nodes {Node[]} the list of nodes
      */
-    constructor(id, name, DBWriteName, refreshTime, nodes) {
+    constructor(id, name, DBWriteName, DBWriteUrl, DBWriteUser, DBWritePassword, refreshTime, nodes) {
         this.id = id;
         this.name = name;
         this.DBWriteName = DBWriteName;
+        this.DBWriteUrl = DBWriteUrl;
+        this.DBWriteUser = DBWriteUser;
+        this.DBWritePassword = DBWritePassword;
         this.refreshTime = refreshTime;
         this.nodes = nodes;
         this.graph = this.makeGraph();
@@ -56,18 +57,11 @@ class Network {
     }
 
     /**
-     * TODO
-     * Calculates and updates current node values and state
-     * both in jsbayes and in the database
-     */
-    update() {}
-
-    /**
      * Get a JSON definition of the network instance
      * @returns {JSON} the JSON definition
      */
     toJSON() {
-        return getJSONFromNetwork(this);
+        return null;
     }
 
     /**
@@ -77,7 +71,16 @@ class Network {
      * @returns {Network} the network instance
      */
     static fromJSON(json) {
-        return getNetworkFromJSON(json);
+        let id = json.id;
+        let name = json.name;
+        let DBWriteName = json.databaseWriteName;
+        let DBWriteUrl = json.databaseWriteUrl;
+        let DBWriteUser = json.databaseWriteUser;
+        let DBWritePassword = json.databaseWritePassword;
+        let refreshTime = json.refreshTime;
+        let nodes = json.nodes.map(node => Node.fromJSON(node));
+
+        return new Network(id, name, DBWriteName, DBWriteUrl, DBWriteUser, DBWritePassword, refreshTime, nodes);
     }
 }
 exports.Network = Network;
