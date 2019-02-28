@@ -13,7 +13,7 @@ class State {
      */
     isTriggered(currentValue) {
         console.log('[0] Trigger: ' + this.trigger);
-        let split = this.trigger.split('%v').filter(val => val != null);
+        let split = this.trigger.split('%v').filter(val => val !== "");
 
         console.log('[1] Split: ' + split.toString());
         if (split.length === 1) {
