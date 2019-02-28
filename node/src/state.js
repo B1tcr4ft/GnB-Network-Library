@@ -17,8 +17,10 @@ class State {
 
         console.log('[1] Split: ' + split.toString());
         if (split.length === 1) {
+            console.log("SPLIT 1 " + this.trigger.replace("%v", currentValue));
             return eval(this.trigger.replace("%v", currentValue));
         } else {
+            console.log("SPLIT 2" + split[0] + currentValue + "&& " + currentValue + split[1]);
             return eval(split[0] + currentValue) && eval(currentValue + split[1]);
         }
     }
