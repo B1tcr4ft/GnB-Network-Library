@@ -41,12 +41,7 @@ class Node {
      */
     getState(value) {
         return this.states.find(state => {
-            let triggered = state.isTriggered(value);
-            console.log(triggered);
-            if (triggered) {
-                console.log(state.name);
-            }
-            return triggered;
+            return state.isTriggered(value);
         }).name;
     }
 

@@ -10,10 +10,8 @@ export class State {
      * @return {boolean} true, if the trigger is fired, false otherwise
      */
     isTriggered(currentValue) {
-        console.log('[0] Trigger: ' + this.trigger);
         let split = this.trigger.split('%v').filter(val => val !== "");
 
-        console.log('[1] Split: ' + split.toString());
         if(split.length === 1) {
             return eval(this.trigger.replace("%v", currentValue));
         } else {
