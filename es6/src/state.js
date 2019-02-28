@@ -11,7 +11,7 @@ export class State {
      * @return {boolean} true, if the trigger is fired, false otherwise
      */
     isFired(currentValue) {
-        return false;
+        return eval(this.trigger.replace("%s", currentValue.toString()));
     }
 
     /**

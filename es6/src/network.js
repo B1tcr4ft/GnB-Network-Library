@@ -51,6 +51,7 @@ export class Network {
     }
 
     /**
+     * TODO
      * Get a JSON definition of the network instance
      * @returns {JSON} the JSON definition
      */
