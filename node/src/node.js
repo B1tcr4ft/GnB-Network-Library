@@ -41,7 +41,10 @@ class Node {
      */
     getState(value) {
         this.states.forEach(state => {
-            if (state.isTriggered(value)) {
+            let triggered = state.isTriggered(value);
+            console.log(triggered);
+            if (triggered) {
+                console.log(state.name);
                 return state.name;
             }
         });
