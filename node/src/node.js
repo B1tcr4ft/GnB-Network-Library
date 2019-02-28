@@ -40,14 +40,14 @@ class Node {
      * @returns {string} the current state's name
      */
     getState(value) {
-        this.states.forEach(state => {
+        for (let state in this.states) {
             let triggered = state.isTriggered(value);
             console.log(triggered);
             if (triggered) {
                 console.log(state.name);
                 return state.name;
             }
-        });
+        }
     }
 
     /**
