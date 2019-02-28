@@ -12,6 +12,7 @@ export class State {
     isTriggered(currentValue) {
         let split = this.trigger.split('%v');
 
+        console.log(split);
         if(split.length === 1) {
             return eval(this.trigger.replace("%v", currentValue));
         } else {
