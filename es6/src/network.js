@@ -45,8 +45,6 @@ export class Network {
             graphNode.setCpt(node.cpt);
         });
 
-        graph.sample(20000);
-
         return graph;
     }
 

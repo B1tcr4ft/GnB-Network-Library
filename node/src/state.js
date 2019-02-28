@@ -7,13 +7,18 @@ class State {
     }
 
     /**
-     * TODO
      * Check whether the trigger has been fired or not
      * @param currentValue {number} the current node value to check
      * @return {boolean} true, if the trigger is fired, false otherwise
      */
-    isFired(currentValue) {
-        return false;
+    isTriggered(currentValue) {
+        let split = this.trigger.split('%v');
+
+        if (split.length === 1) {
+            return eval(this.trigger.replace("%v", currentValue));
+        } else {
+            return eval(split[0] + currentValue) && eval(currentValue + split[1]);
+        }
     }
 
     /**

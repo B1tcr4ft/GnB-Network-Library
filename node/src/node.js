@@ -41,7 +41,7 @@ class Node {
      */
     getState(value) {
         this.states.forEach(state => {
-            if (state.isFired(value)) {
+            if (state.isTriggered(value)) {
                 return state.name;
             }
         });

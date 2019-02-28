@@ -51,12 +51,11 @@ class Network {
             graphNode.setCpt(node.cpt);
         });
 
-        graph.sample(20000);
-
         return graph;
     }
 
     /**
+     * TODO
      * Get a JSON definition of the network instance
      * @returns {JSON} the JSON definition
      */
