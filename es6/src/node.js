@@ -34,14 +34,14 @@ export class Node {
      * @returns {string} the current state's name
      */
     getState(value) {
-        this.states.find(state => {
+        return this.states.find(state => {
             let triggered = state.isTriggered(value);
             console.log(triggered);
             if(triggered) {
                 console.log(state.name);
-                return state.name;
             }
-        });
+            return triggered;
+        }).name;
     }
 
     /**
