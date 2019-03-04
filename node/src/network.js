@@ -12,20 +12,20 @@ class Network {
      * Build a network instance
      * @param id {string} the network id
      * @param name {string} the network name
-     * @param DBWriteName {string} the database name (as it is called on Grafana's database list) where the nodes' probabilities will be registered
-     * @param DBWriteUrl {string} url of the database where the nodes' probabilities will be registered
-     * @param DBWriteUser {string} user of the database where the nodes' probabilities will be registered
-     * @param DBWritePassword {string} password of the database where the nodes' probabilities will be registered
      * @param refreshTime {number} the interval time (in milliseconds) between the node updates
+     * @param databaseWriteName {string} the database name (as it is called on Grafana's database list) where the nodes' probabilities will be registered
+     * @param databaseWriteUrl {string} url of the database where the nodes' probabilities will be registered
+     * @param databaseWriteUser {string} user of the database where the nodes' probabilities will be registered
+     * @param databaseWritePassword {string} password of the database where the nodes' probabilities will be registered
      * @param nodes {Node[]} the list of nodes
      */
-    constructor(id, name, DBWriteName, DBWriteUrl, DBWriteUser, DBWritePassword, refreshTime, nodes) {
+    constructor(id, name, refreshTime, databaseWriteName, databaseWriteUrl, databaseWriteUser, databaseWritePassword, nodes) {
         this.id = id;
         this.name = name;
-        this.DBWriteName = DBWriteName;
-        this.DBWriteUrl = DBWriteUrl;
-        this.DBWriteUser = DBWriteUser;
-        this.DBWritePassword = DBWritePassword;
+        this.databaseWriteName = databaseWriteName;
+        this.databaseWriteUrl = databaseWriteUrl;
+        this.databaseWriteUser = databaseWriteUser;
+        this.databaseWritePassword = databaseWritePassword;
         this.refreshTime = refreshTime;
         this.nodes = nodes;
         this.graph = this.makeGraph();
@@ -55,7 +55,6 @@ class Network {
     }
 
     /**
-     * TODO
      * Get a JSON definition of the network instance
      * @returns {JSON} the JSON definition
      */
@@ -63,10 +62,11 @@ class Network {
         let network = {};
         network.id = this.id;
         network.name = this.name;
-        network.DBWriteName = this.DBWriteName;
-        network.DBWriteUrl = this.DBWriteUrl;
-        network.DBWriteUser = this.DBWriteUser;
-        network.DBWritePassword = this.DBWritePassword;
+        network.refreshTime = this.refreshTime;
+        network.databaseWriteName = this.databaseWriteName;
+        network.databaseWriteUrl = this.databaseWriteUrl;
+        network.databaseWriteUser = this.databaseWriteUser;
+        network.databaseWritePassword = this.databaseWritePassword;
         network.nodes = this.nodes;
 
         return JSON.parse(JSON.stringify(network));
@@ -79,16 +79,7 @@ class Network {
      * @returns {Network} the network instance
      */
     static fromJSON(json) {
-        let id = json.id;
-        let name = json.name;
-        let DBWriteName = json.databaseWriteName;
-        let DBWriteUrl = json.databaseWriteUrl;
-        let DBWriteUser = json.databaseWriteUser;
-        let DBWritePassword = json.databaseWritePassword;
-        let refreshTime = json.refreshTime;
-        let nodes = json.nodes.map(node => Node.fromJSON(node));
-
-        return new Network(id, name, DBWriteName, DBWriteUrl, DBWriteUser, DBWritePassword, refreshTime, nodes);
+        return new Network(json.id, json.name, json.refreshTime, json.databaseWriteName, json.databaseWriteUrl, json.databaseWriteUser, json.databaseWritePassword, json.nodes.map(node => Node.fromJSON(node)));
     }
 }
 exports.Network = Network;

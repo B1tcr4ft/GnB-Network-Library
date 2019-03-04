@@ -46,12 +46,6 @@ export class Node {
      * @return {Node} the node instance
      */
     static fromJSON(json) {
-        let id = json.id;
-        let name = json.name;
-        let parents = json.parents;
-        let states = json.states.map(state => State.fromJSON(state));
-        let cpt = json.cpt;
-
         /*let cpt = [];
         if(json.cpt.length === 1) {
             cpt = json.cpt[0].map(num => parseFloat(num));
@@ -59,8 +53,8 @@ export class Node {
             json.cpt.forEach(entry => cpt.push(entry.map(num => parseFloat(num))));
         }*/
 
-        let sensor = json.sensor;
-
-        return new Node(id, name, parents, states, cpt, sensor);
+        return new Node(
+          json.id, json.name, json.parents, json.states.map(state => State.fromJSON(state)), json.cpt, json.sensor
+        );
     }
 }
