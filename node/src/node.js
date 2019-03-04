@@ -31,7 +31,7 @@ class Node {
      * @return {boolean} true, if the node has a sensor, false otherwise
      */
     hasSensor() {
-        return this.sensor !== undefined;
+        return this.sensor.hasOwnProperty('databaseSensorUrl');
     }
 
     /**
