@@ -45,7 +45,16 @@ export class Node {
      * @returns {JSON} the JSON definition
      */
     toJSON() {
-        return null;
+        let node = new Object();
+        node.id = this.id;
+        node.name = this.name;
+        node.parents = this.parents;
+        node.states = this.states;
+        node.cpt = this.cpt;
+        node.sensor = this.sensor;
+
+        return node;
+
     }
 
     /**
