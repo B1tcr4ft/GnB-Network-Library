@@ -25,7 +25,7 @@ export class Node {
      * @return {boolean} true, if the node has a sensor, false otherwise
      */
     hasSensor() {
-        return this.sensor.hasOwnProperty('databaseSensorName');
+        return this.sensor !== undefined;
     }
 
     /**
@@ -46,15 +46,10 @@ export class Node {
      * @return {Node} the node instance
      */
     static fromJSON(json) {
-        /*let cpt = [];
-        if(json.cpt.length === 1) {
-            cpt = json.cpt[0].map(num => parseFloat(num));
-        } else {
-            json.cpt.forEach(entry => cpt.push(entry.map(num => parseFloat(num))));
-        }*/
-
         return new Node(
-          json.id, json.name, json.parents, json.states.map(state => State.fromJSON(state)), json.cpt, json.sensor
+            json.id, json.name, json.parents,
+            json.states.map(state => State.fromJSON(state)), json.cpt,
+            Sensor.fromJSON(json.sensor)
         );
     }
 }

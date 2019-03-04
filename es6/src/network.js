@@ -49,6 +49,17 @@ export class Network {
     }
 
     /**
+     * Updates the database credentials
+     * @param json {JSON} the JSON containing the database definitions
+     */
+    setDatabase(json) {
+        this.databaseWriteName = json.databaseWriteName;
+        this.databaseWriteUrl = json.databaseWriteUrl;
+        this.databaseWriteUser = json.databaseWriteUser;
+        this.databaseWritePassword = json.databaseWritePassword;
+    }
+
+    /**
      * Get a JSON definition of the network instance
      * @returns {JSON} the JSON definition
      */
