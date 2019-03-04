@@ -42,7 +42,11 @@ export class Network {
             node.parents.forEach(parent => graphNode.addParent(graph.node(parent)));
 
             //setting cpt
-            graphNode.setCpt(node.cpt);
+            if(node.cpt.length === 1) {
+                graphNode.setCpt(node.cpt[0]);
+            } else {
+                graphNode.setCpt(node.cpt);
+            }
         });
 
         return graph;
