@@ -31,7 +31,7 @@ class Node {
      * @return {boolean} true, if the node has a sensor, false otherwise
      */
     hasSensor() {
-        return this.sensor.isPrototypeOf(Sensor);
+        return this.sensor !== undefined;
     }
 
     /**
@@ -55,7 +55,10 @@ class Node {
         let cpt = [];
         json.cpt.forEach(entry => cpt.push(entry.map(num => parseFloat(num))));
 
-        return new Node(json.id, json.name, json.parents, json.states.map(state => State.fromJSON(state)), cpt, Sensor.fromJSON(json.sensor));
+        return new Node(json.id, json.name, json.parents, json.states.map(state => State.fromJSON(state)), cpt,
+        //Sensor.fromJSON(json.sensor)
+        json.sensor //TODO use Sensor
+        );
     }
 }
 exports.Node = Node;

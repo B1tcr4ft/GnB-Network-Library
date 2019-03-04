@@ -25,7 +25,7 @@ export class Node {
      * @return {boolean} true, if the node has a sensor, false otherwise
      */
     hasSensor() {
-        return this.sensor.isPrototypeOf(Sensor);
+        return this.sensor !== undefined;
     }
 
     /**
@@ -52,7 +52,8 @@ export class Node {
         return new Node(
             json.id, json.name, json.parents,
             json.states.map(state => State.fromJSON(state)), cpt,
-            Sensor.fromJSON(json.sensor)
+            //Sensor.fromJSON(json.sensor)
+            json.sensor //TODO use Sensor
         );
     }
 }
