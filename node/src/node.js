@@ -52,7 +52,14 @@ class Node {
      * @return {Node} the node instance
      */
     static fromJSON(json) {
-        return new Node(json.id, json.name, json.parents, json.states.map(state => State.fromJSON(state)), json.cpt, Sensor.fromJSON(json.sensor));
+        let cpt = [];
+        if (json.cpt.length === 1) {
+            cpt = json.cpt[0].map(num => parseFloat(num));
+        } else {
+            json.cpt.forEach(entry => cpt.push(entry.map(num => parseFloat(num))));
+        }
+
+        return new Node(json.id, json.name, json.parents, json.states.map(state => State.fromJSON(state)), cpt, Sensor.fromJSON(json.sensor));
     }
 }
 exports.Node = Node;
