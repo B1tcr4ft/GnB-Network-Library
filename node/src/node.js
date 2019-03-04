@@ -54,7 +54,7 @@ class Node {
     static fromJSON(json) {
         let cpt = [];
         if (json.cpt.length === 1) {
-            cpt = json.cpt[0].map(num => parseFloat(num));
+            cpt.push(json.cpt[0].map(num => parseFloat(num)));
         } else {
             json.cpt.forEach(entry => cpt.push(entry.map(num => parseFloat(num))));
         }
