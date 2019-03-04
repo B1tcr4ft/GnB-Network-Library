@@ -46,23 +46,6 @@ class Node {
     }
 
     /**
-     * TODO
-     * Get a JSON definition of the node instance
-     * @returns {JSON} the JSON definition
-     */
-    toJSON() {
-        let node = new Object();
-        node.id = this.id;
-        node.name = this.name;
-        node.parents = this.parents;
-        node.states = this.states;
-        node.cpt = this.cpt;
-        node.sensor = this.sensor;
-
-        return node;
-    }
-
-    /**
      * Get a node instance from a JSON containing
      * its definition
      * @param json {JSON} the json definition
