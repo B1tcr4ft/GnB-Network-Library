@@ -20,6 +20,15 @@ class Sensor {
     }
 
     /**
+     * TODO
+     * Get a JSON definition of the sensor instance
+     * @returns {JSON} the JSON definition
+     */
+    toJSON() {
+        return null;
+    }
+
+    /**
      * Get a sensor instance from a JSON containing
      * its definition
      * @param json {JSON} the json definition

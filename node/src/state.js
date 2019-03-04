@@ -22,6 +22,15 @@ class State {
     }
 
     /**
+     * TODO
+     * Get a JSON definition of the state instance
+     * @returns {JSON} the JSON definition
+     */
+    toJSON() {
+        return null;
+    }
+
+    /**
      * Get a state instance from a JSON containing
      * its definition
      * @param json {JSON} the json definition

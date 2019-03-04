@@ -60,7 +60,19 @@ class Network {
      * @returns {JSON} the JSON definition
      */
     toJSON() {
-        return null;
+        /*let network = new Object();
+        network.id = this.id;
+        network.name = this.name;
+        network.DBWriteName = this.DBWriteName;
+        network.DBWriteUrl = this.DBWriteUrl;
+        network.DBWriteUser = this.DBWriteUser;
+        network.DBWritePassword = this.DBWritePassword;
+        network.nodes = [];
+        this.nodes.forEach((n) =>{
+            network.nodes.add(n.toJSON());
+        })
+        */
+        return JSON.parse(JSON.stringify(this));
     }
 
     /**
