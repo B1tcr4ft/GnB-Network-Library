@@ -86,7 +86,7 @@ class Network {
         let DBWriteUser = json.databaseWriteUser;
         let DBWritePassword = json.databaseWritePassword;
         let refreshTime = json.refreshTime;
-        let nodes = json.nodes.map(node => Node.fromJSON(node));
+        let nodes = json.nodes; //json.nodes.map(node => Node.fromJSON(node));
 
         return new Network(id, name, DBWriteName, DBWriteUrl, DBWriteUser, DBWritePassword, refreshTime, nodes);
     }
