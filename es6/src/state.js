@@ -1,4 +1,9 @@
 export class State {
+    /**
+     * Build a state instance
+     * @param name {string} the state name
+     * @param trigger {string} the state trigger
+     */
     constructor(name, trigger) {
         this.name = name;
         this.trigger = trigger;
