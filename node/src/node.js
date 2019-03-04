@@ -55,14 +55,15 @@ class Node {
         let id = json.id;
         let name = json.name;
         let parents = json.parents;
-        let states = json.states;
+        let states = json.states.map(state => State.fromJSON(state));
+        let cpt = json.cpt;
 
-        let cpt = [];
-        if (json.cpt.length === 1) {
+        /*let cpt = [];
+        if(json.cpt.length === 1) {
             cpt = json.cpt[0].map(num => parseFloat(num));
         } else {
             json.cpt.forEach(entry => cpt.push(entry.map(num => parseFloat(num))));
-        }
+        }*/
 
         let sensor = json.sensor;
 
