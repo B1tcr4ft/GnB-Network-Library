@@ -20,6 +20,7 @@ class Sensor {
     }
 
     /**
+     * TODO fix
      * Updates the database credentials
      * @param json {JSON} the JSON containing the database definitions
      */

@@ -56,13 +56,16 @@ class Network {
 
     /**
      * Updates the database credentials
-     * @param json {JSON} the JSON containing the database definitions
+     * @param databaseWriteName {string} the database name (as it is called on Grafana's database list) where the nodes' probabilities will be registered
+     * @param databaseWriteUrl {string} url of the database where the nodes' probabilities will be registered
+     * @param databaseWriteUser {string} user of the database where the nodes' probabilities will be registered
+     * @param databaseWritePassword {string} password of the database where the nodes' probabilities will be registered
      */
-    setDatabase(json) {
-        this.databaseWriteName = json.databaseWriteName;
-        this.databaseWriteUrl = json.databaseWriteUrl;
-        this.databaseWriteUser = json.databaseWriteUser;
-        this.databaseWritePassword = json.databaseWritePassword;
+    setDatabase(databaseWriteName, databaseWriteUrl, databaseWriteUser, databaseWritePassword) {
+        this.databaseWriteName = databaseWriteName;
+        this.databaseWriteUrl = databaseWriteUrl;
+        this.databaseWriteUser = databaseWriteUser;
+        this.databaseWritePassword = databaseWritePassword;
     }
 
     /**
