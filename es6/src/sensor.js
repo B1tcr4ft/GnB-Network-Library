@@ -1,24 +1,13 @@
 export class Sensor {
     /**
-     * Build a sensor instance
-     * @param databaseSensorUrl {string} the database name
-     * @param databaseSensorName {string} the database url
-     * @param databaseSensorUser {string} the database user
-     * @param databaseSensorPassword {string} the database password
-     * @param databaseSensorTable {string} the database table
-     * @param databaseSensorColumn {string} the database column
+     * Get whether the sensor is set or not
+     * @returns {boolean} true, if the sensor is set, false otherwise
      */
-    constructor(databaseSensorUrl, databaseSensorName, databaseSensorUser, databaseSensorPassword, databaseSensorTable, databaseSensorColumn) {
-        this.databaseSensorUrl = databaseSensorUrl;
-        this.databaseSensorName = databaseSensorName;
-        this.databaseSensorUser = databaseSensorUser;
-        this.databaseSensorPassword = databaseSensorPassword;
-        this.databaseSensorTable = databaseSensorTable;
-        this.databaseSensorColumn = databaseSensorColumn;
+    isSet() {
+        return this.hasOwnProperty('databaseSensorUrl');
     }
 
     /**
-     * TODO fix (if sensor was null)
      * Updates the database credentials
      * @param json {JSON} the JSON containing the database definitions
      */
@@ -38,14 +27,12 @@ export class Sensor {
      * @return {Sensor|Object} the sensor instance, or an empty object
      */
     static fromJSON(json) {
+        let sensor = new Sensor();
+
         if(json.hasOwnProperty('databaseSensorUrl')) {
-            return new Sensor(
-                json.databaseSensorUrl, json.databaseSensorName,
-                json.databaseSensorUser, json.databaseWritePassword,
-                json.databaseSensorTable, json.databaseSensorColumn
-            );
+            sensor.setDatabase(json);
         }
 
-        return {};
+        return sensor;
     }
 }
