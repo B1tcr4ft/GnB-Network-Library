@@ -18,7 +18,7 @@ export class Sensor {
     }
 
     /**
-     * TODO fix
+     * TODO fix (if sensor was null)
      * Updates the database credentials
      * @param json {JSON} the JSON containing the database definitions
      */
@@ -35,7 +35,7 @@ export class Sensor {
      * Get a sensor instance from a JSON containing
      * its definition
      * @param json {JSON} the json definition
-     * @return {Sensor} the sensor instance
+     * @return {Sensor|Object} the sensor instance, or an empty object
      */
     static fromJSON(json) {
         if(json.hasOwnProperty('databaseSensorUrl')) {
@@ -46,6 +46,6 @@ export class Sensor {
             );
         }
 
-        return null;
+        return {};
     }
 }
