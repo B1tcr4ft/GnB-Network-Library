@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class Sensor {
     /**
@@ -17,27 +17,6 @@ class Sensor {
         this.DBSensorPassword = DBSensorPassword;
         this.DBSensorTable = DBSensorTable;
         this.DBSensorColumn = DBSensorColumn;
-    }
-
-    /**
-     * Get a sensor instance from a JSON containing
-     * its definition
-     * @param json {JSON} the json definition
-     * @return {Sensor} the sensor instance
-     */
-    static fromJSON(json) {
-        if (json.hasOwnProperty('databaseSensorName')) {
-            let DBSensorName = json.databaseSensorName;
-            let DBSensorUrl = json.databaseSensorUrl;
-            let DBSensorUser = json.databaseSensorUser;
-            let DBSensorPassword = json.databaseSensorPassword;
-            let DBSensorTable = json.databaseSensorTable;
-            let DBSensorColumn = json.databaseSensorColumn;
-
-            return new Sensor(DBSensorName, DBSensorUrl, DBSensorUser, DBSensorPassword, DBSensorTable, DBSensorColumn);
-        }
-
-        return null;
     }
 }
 exports.Sensor = Sensor;
