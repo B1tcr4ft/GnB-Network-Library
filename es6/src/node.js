@@ -40,6 +40,15 @@ export class Node {
     }
 
     /**
+     * TODO
+     * Get a JSON definition of the node instance
+     * @returns {JSON} the JSON definition
+     */
+    toJSON() {
+        return null;
+    }
+
+    /**
      * Get a node instance from a JSON containing
      * its definition
      * @param json {JSON} the json definition
